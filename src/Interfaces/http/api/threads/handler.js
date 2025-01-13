@@ -8,6 +8,7 @@ class ThreadsHandler {
 
     this.postThreadHandler = this.postThreadHandler.bind(this);
     this.getThreadHandler = this.getThreadHandler.bind(this);
+    this.getWelcomeThreadHandler = this.getWelcomeThreadHandler.bind(this);
 
   }
 
@@ -35,6 +36,15 @@ class ThreadsHandler {
       data: {
         thread,
       },
+    });
+    response.code(200);
+    return response;
+  }
+
+  async getWelcomeThreadHandler(request, h) {
+    const response = h.response({
+      status: 'success',
+      message: 'welcome thread',
     });
     response.code(200);
     return response;
