@@ -123,4 +123,24 @@ describe('/threads endpoint', () => {
       expect(responseJson.data).toBeDefined();
     });
    });
+
+  describe('when GET /threads/welcome', () => { 
+    it('should response 200 and get welcome message', async () => {
+      // Arrange
+      const server = await createServer(container);
+
+      // Action
+      const response = await server.inject({
+        method: 'GET',
+        url: '/threads/welcome',
+      });
+
+      // Assert
+      const responseJson = JSON.parse(response.payload);
+      expect(response.statusCode).toEqual(200);
+      expect(responseJson.status).toEqual('success');
+      expect(responseJson.message).toEqual('welcome thread');
+    });
+   });
+
 });
