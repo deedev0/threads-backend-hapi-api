@@ -9,6 +9,11 @@ const routes = (handler) => [
     path: '/threads/{threadId}',
     handler: handler.getThreadHandler,
   },
+  {
+    method: 'GET',
+    path: '/threads/welcome',
+    handler: handler.getWelcomeThreadHandler,
+  },
 ];
 
 module.exports = routes;
